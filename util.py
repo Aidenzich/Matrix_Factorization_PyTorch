@@ -1,6 +1,7 @@
 import pandas as pd
 import time
 import json
+import math
 from tqdm import tqdm
 
 def dtype_memory_usage(dataframe, dtype_list=['float','int','object']):
@@ -97,3 +98,7 @@ def recall_evaluate(predict_dict, real_dict):
     return result
 
 
+def smooth_user_preference(x):
+    """normalized values
+    """
+    return math.log(1+x, 2)
